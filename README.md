@@ -1,4 +1,4 @@
-#### Finance Flow Api
+#### Finance Flow API
 
 ```
 npm install
