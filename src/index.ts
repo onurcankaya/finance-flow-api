@@ -1,14 +1,16 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import cors from "cors";
+
+import transactionRoutes from "./routes/transactions";
 
 const app = express();
-const port = 3000;
 
+app.use(cors());
 app.use(express.json());
+app.use("/api/v1/transactions", transactionRoutes);
 
-app.get("/", (req: Request, res: Response) => {
-  res.status(200).send("Finance Flow API");
-});
+const PORT = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
